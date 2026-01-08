@@ -64,6 +64,11 @@ Build a visual clone of MaxVideoAI with same functionality and look/feel, but br
   - [ ] Add custom play overlay
   - [ ] Implement play-on-hover
   - [ ] Styled minimal controls
+- [ ] **Video Details Page** (New Feature)
+  - [ ] Create `/video/[id]` dynamic route
+  - [ ] Build layout (large player, prompt details, model info)
+  - [ ] Connect "Clone" button to generator
+  - [ ] Link from Examples page cards
 - [ ] **Hero video cards** (Homepage)
   - [ ] Add 2-3 autoplay video cards below CTAs
   - [ ] Show model name, price ($), clone button
