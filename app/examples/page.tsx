@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import VideoPlayer from '@/components/VideoPlayer';
 
 const MODELS = ['All', 'Sora 2', 'Veo 3.1', 'Runway Gen 3', 'Pika 2.2', 'Kling', 'Luma'];
 
@@ -187,11 +188,9 @@ export default function ExamplesPage() {
                             <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden hover:shadow-float transition-shadow">
                                 {/* Video Preview */}
                                 <div className="aspect-video bg-gray-100">
-                                    <video
+                                    <VideoPlayer
                                         src={example.videoUrl}
-                                        className="w-full h-full object-cover"
-                                        controls
-                                        loop
+                                        className="rounded-t-lg"
                                     />
                                 </div>
 
