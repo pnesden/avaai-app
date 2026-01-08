@@ -185,40 +185,42 @@ export default function ExamplesPage() {
                 <>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {displayedExamples.map((example) => (
-                            <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden hover:shadow-float transition-shadow">
-                                {/* Video Preview */}
-                                <div className="aspect-video bg-gray-100">
-                                    <VideoPlayer
-                                        src={example.videoUrl}
-                                        className="rounded-t-lg"
-                                    />
-                                </div>
+                            <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden hover:shadow-float transition-all duration-300 group cursor-pointer relative">
+                                <Link href={`/video/${example.id}`} className="block h-full">
+                                    {/* Video Preview */}
+                                    <div className="aspect-video bg-gray-100 relative">
+                                        <VideoPlayer
+                                            src={example.videoUrl}
+                                            className="rounded-t-lg pointer-events-none" // Disable pointer events on player to ensure Link gets click? 
+                                            // Actually with enableClickToggle=false on previous step, we likely don't need pointer-events-none if togglePlay ignores it.
+                                            // But passing enableClickToggle={false} is cleaner.
+                                            enableClickToggle={false}
+                                        />
+                                    </div>
 
-                                {/* Details */}
-                                <div className="p-4">
-                                    <div className="flex items-center justify-between mb-2">
-                                        <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
-                                            {example.model}
-                                        </span>
-                                        <span className="text-xs text-[var(--text-secondary)]">
-                                            {example.aspectRatio}
-                                        </span>
+                                    {/* Details */}
+                                    <div className="p-4">
+                                        <div className="flex items-center justify-between mb-2">
+                                            <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
+                                                {example.model}
+                                            </span>
+                                            <span className="text-xs text-[var(--text-secondary)]">
+                                                {example.aspectRatio}
+                                            </span>
+                                        </div>
+                                        <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
+                                            {example.prompt}
+                                        </p>
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-sm font-semibold text-[var(--accent)]">
+                                                {example.price} credits
+                                            </span>
+                                            <span className="text-sm font-medium text-[var(--accent)] group-hover:text-[var(--accent-hover)] transition-colors">
+                                                Clone settings →
+                                            </span>
+                                        </div>
                                     </div>
-                                    <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
-                                        {example.prompt}
-                                    </p>
-                                    <div className="flex items-center justify-between">
-                                        <span className="text-sm font-semibold text-[var(--accent)]">
-                                            {example.price} credits
-                                        </span>
-                                        <Link
-                                            href={`/generate?prompt=${encodeURIComponent(example.prompt)}&model=${example.model}`}
-                                            className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-                                        >
-                                            Clone settings →
-                                        </Link>
-                                    </div>
-                                </div>
+                                </Link>
                             </div>
                         ))}
                     </div>

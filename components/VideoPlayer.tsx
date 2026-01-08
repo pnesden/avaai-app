@@ -6,9 +6,10 @@ interface VideoPlayerProps {
     src: string;
     poster?: string;
     className?: string;
+    enableClickToggle?: boolean;
 }
 
-export default function VideoPlayer({ src, poster, className = '' }: VideoPlayerProps) {
+export default function VideoPlayer({ src, poster, className = '', enableClickToggle = true }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
@@ -31,6 +32,8 @@ export default function VideoPlayer({ src, poster, className = '' }: VideoPlayer
     };
 
     const togglePlay = (e: React.MouseEvent) => {
+        if (!enableClickToggle) return; // Allow click to propagate if toggle disabled
+        e.preventDefault();
         e.stopPropagation();
         if (videoRef.current) {
             if (isPlaying) {
