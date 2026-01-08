@@ -26,6 +26,96 @@ export default function HomePage() {
                 See examples <span aria-hidden="true">→</span>
               </a>
             </div>
+
+            {/* Featured Video Cards */}
+            <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {/* Video Card 1 */}
+              <a href="/video/1" className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div className="aspect-video bg-gray-900 relative overflow-hidden">
+                  <video
+                    src="/assets/gallery/adraga-beach.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-white text-xs font-medium">
+                    16:9
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-semibold text-purple-600 bg-purple-50 px-2 py-1 rounded">Sora 2</span>
+                    <span className="text-xs text-gray-500">$1.50</span>
+                  </div>
+                  <p className="text-sm text-gray-700 line-clamp-2 mb-3">
+                    A serene beach with crashing waves at sunset
+                  </p>
+                  <button className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
+                    Clone settings →
+                  </button>
+                </div>
+              </a>
+
+              {/* Video Card 2 */}
+              <a href="/video/3" className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div className="aspect-video bg-gray-900 relative overflow-hidden">
+                  <video
+                    src="/assets/gallery/robot-eyes.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-white text-xs font-medium">
+                    1:1
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-semibold text-pink-600 bg-pink-50 px-2 py-1 rounded">Runway Gen 3</span>
+                    <span className="text-xs text-gray-500">$1.00</span>
+                  </div>
+                  <p className="text-sm text-gray-700 line-clamp-2 mb-3">
+                    Futuristic robot with glowing eyes
+                  </p>
+                  <button className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
+                    Clone settings →
+                  </button>
+                </div>
+              </a>
+
+              {/* Video Card 3 */}
+              <a href="/video/9" className="group block bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                <div className="aspect-video bg-gray-900 relative overflow-hidden">
+                  <video
+                    src="/hero/veo3.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                  <div className="absolute bottom-3 right-3 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-white text-xs font-medium">
+                    16:9
+                  </div>
+                </div>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded">Veo 3.1</span>
+                    <span className="text-xs text-gray-500">$1.20</span>
+                  </div>
+                  <p className="text-sm text-gray-700 line-clamp-2 mb-3">
+                    High-quality realistic video with natural motion
+                  </p>
+                  <button className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
+                    Clone settings →
+                  </button>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </section>
