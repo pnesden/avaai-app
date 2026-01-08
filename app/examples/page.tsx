@@ -66,7 +66,7 @@ const EXAMPLE_VIDEOS = [
 
 export default function ExamplesPage() {
     const [selectedModel, setSelectedModel] = useState('All');
-    const [displayCount, setDisplayCount] = useState(8);
+    const [displayCount, setDisplayCount] = useState(5); // Start with 5 to show load more button
 
     const filteredExamples = selectedModel === 'All'
         ? EXAMPLE_VIDEOS
@@ -76,7 +76,7 @@ export default function ExamplesPage() {
     const hasMore = displayCount < filteredExamples.length;
 
     const loadMore = () => {
-        setDisplayCount(prev => prev + 8);
+        setDisplayCount(prev => prev + 5); // Load 5 more at a time
     };
 
     return (
@@ -97,11 +97,11 @@ export default function ExamplesPage() {
                         key={model}
                         onClick={() => {
                             setSelectedModel(model);
-                            setDisplayCount(8);
+                            setDisplayCount(5); // Reset to 5 when changing filter
                         }}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${selectedModel === model
-                                ? 'bg-[var(--accent)] text-white'
-                                : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
+                            ? 'bg-[var(--accent)] text-white'
+                            : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
                             }`}
                     >
                         {model}
