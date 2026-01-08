@@ -45,7 +45,7 @@ export default function VideoPlayer({ src, poster, className = '' }: VideoPlayer
 
     return (
         <div
-            className={`relative w-full h-full overflow-hidden bg-gray-900 ${className}`}
+            className={`relative w-full h-full overflow-hidden bg-gray-900 group ${className}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
@@ -59,30 +59,19 @@ export default function VideoPlayer({ src, poster, className = '' }: VideoPlayer
                 playsInline
             />
 
-            {/* Play/Pause Overlay - shows when not playing or on hover */}
-            {(!isPlaying || isHovering) && (
-                <div
-                    className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity cursor-pointer"
-                    onClick={togglePlay}
-                >
-                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white hover:scale-110 transition-all shadow-lg">
-                        {isPlaying ? (
-                            // Pause icon
-                            <svg className="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-                            </svg>
-                        ) : (
-                            // Play icon
-                            <svg className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z" />
-                            </svg>
-                        )}
-                    </div>
-                </div>
-            )}
+            {/* Sound Spectrum Icon (Bottom Right) */}
+            <div className="absolute bottom-3 right-3 p-1.5 bg-black/40 backdrop-blur-sm rounded-md text-white/90 pointer-events-none transition-opacity opacity-0 group-hover:opacity-100">
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4L12 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M17 7L17 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M7 8L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M2 10L2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M22 10L22 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+            </div>
 
             {/* Subtle gradient overlay for better text readability */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
         </div>
     );
 }
