@@ -52,9 +52,43 @@ Build a visual clone of MaxVideoAI with same functionality and look/feel, but br
 - [x] Build models page with all AI engines
 - [x] Build pricing page with packages
 - [x] Add placeholder docs page
-- [x] Create FAQ section preparation
+- [x] Create FAQ section
+- [x] **Add 15 video assets from MaxVideoAI**
+- [x] **Expand model library to 15 AI engines**
 
-### Phase 8: Testing & Deployment
+### Phase 8: Visual Design Polish (NEW - See DESIGN_FIXES.md)
+
+#### 8.1 Critical Visual Updates
+- [ ] **Custom video player** (Examples page - replace HTML5 controls)
+  - [ ] Remove default browser controls
+  - [ ] Add custom play overlay
+  - [ ] Implement play-on-hover
+  - [ ] Styled minimal controls
+- [ ] **Hero video cards** (Homepage)
+  - [ ] Add 2-3 autoplay video cards below CTAs
+  - [ ] Show model name, price ($), clone button
+  - [ ] Autoplay muted videos
+- [ ] **Pricing page redesign**
+  - [ ] Remove SaaS tier cards
+  - [ ] Build interactive cost estimator
+  - [ ] Model dropdown + duration slider
+  - [ ] Live price calculation
+
+#### 8.2 Card & Styling Polish
+- [ ] Color-themed model cards (purple for Sora, blue for Veo, etc.)
+- [ ] Color-coded filter buttons on Examples page
+- [ ] Global border-radius increase (1rem minimum)
+- [ ] Softer shadows on all cards
+- [ ] Hover animations (lift + shadow)
+
+#### 8.3 Final Polish
+- [ ] Typography refinement (Inter font, proper weights)
+- [ ] Masonry grid layout for Examples
+- [ ] Meta badges on homepage hero
+- [ ] "Works with" section redesign
+- [ ] Background gradients and visual depth
+
+### Phase 9: Testing & Deployment
 - [ ] Local testing
 - [ ] Deploy to Vercel
 - [ ] Client demo preparation
