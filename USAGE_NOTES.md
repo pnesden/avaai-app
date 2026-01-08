@@ -74,6 +74,27 @@ The application is **deployed and accessible**. To make it production-ready, onl
 
 ---
 
+### 4. Contact Form Email (SendGrid/Resend)
+**Status:** 📝 Form exists, needs backend
+
+**Current State:**
+- Contact form UI built with validation
+- Form simulates submission (no actual sending)
+
+**To Activate:**
+1. Choose email service (SendGrid or Resend recommended)
+2. Install: `npm install @sendgrid/mail` or `npm install resend`
+3. Build API route (~1 hour):
+   - Create `/api/contact` endpoint
+   - Validate form data
+   - Send email to support@avaai.app
+   - Return success/error response
+4. Add API key to environment variables
+
+**Time to integrate:** 1-2 hours
+
+---
+
 ## Current Status (As of 2026-01-08)
 
 ### Content Management
