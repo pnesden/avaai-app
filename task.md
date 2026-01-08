@@ -59,20 +59,23 @@ Build a visual clone of MaxVideoAI with same functionality and look/feel, but br
 ### Phase 8: Visual Design Polish (NEW - See DESIGN_FIXES.md)
 
 #### 8.1 Critical Visual Updates
-- [ ] **Custom video player** (Examples page - replace HTML5 controls)
-  - [ ] Remove default browser controls
-  - [ ] Add custom play overlay
-  - [ ] Implement play-on-hover
-  - [ ] Styled minimal controls
+- [x] **Custom video player** (Examples page - replaced HTML5 controls)
+  - [x] Remove default browser controls
+  - [x] Add custom play overlay
+  - [x] Implement play-on-hover
+  - [x] Styled minimal controls
 - [x] **Video Details Page** (New Feature)
   - [x] Create `/video/[id]` dynamic route
   - [x] Build layout (large player, prompt details, model info)
-  - [x] Connect "Clone" button to generator
+  [x] Connect "Clone" button to generator
   - [x] Link from Examples page cards
-- [ ] **Hero video cards** (Homepage)
-  - [ ] Add 2-3 autoplay video cards below CTAs
-  - [ ] Show model name, price ($), clone button
-  - [ ] Autoplay muted videos
+- [x] **Hero video cards** (Homepage)
+  - [x] Add 2-3 autoplay video cards below CTAs
+  - [x] Show model name, price ($), clone button
+  - [x] Autoplay muted videos
+- [x] **Legal & Info Pages**
+  - [x] About, Contact, Privacy, Terms, Custom 404
+  - [x] Contact form with map integration
 - [ ] **Pricing page redesign**
   - [ ] Remove SaaS tier cards
   - [ ] Build interactive cost estimator
