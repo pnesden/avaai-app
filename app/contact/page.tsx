@@ -40,7 +40,63 @@ export default function ContactPage() {
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-8">
-                    {/* Contact Form Card */}
+                    {/* Map & Address Card - NOW ON LEFT */}
+                    <div className="space-y-6">
+                        <div className="bg-white rounded-xl shadow-card p-8">
+                            <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Our Location</h2>
+
+                            <div className="space-y-4 mb-6">
+                                <div className="flex items-start">
+                                    <svg className="w-5 h-5 mr-3 mt-0.5 text-[var(--accent)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    <div>
+                                        <p className="font-medium text-[var(--text-primary)]">Avaai Technologies</p>
+                                        <p className="text-[var(--text-secondary)] text-sm mt-1">
+                                            Infinitus Plaza<br />
+                                            199 Des Voeux Road Central<br />
+                                            Sheung Wan, Hong Kong
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center text-sm text-[var(--text-secondary)]">
+                                    <svg className="w-5 h-5 mr-3 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>Monday - Friday: 9:00 AM - 6:00 PM HKT</span>
+                                </div>
+                            </div>
+
+                            {/* Google Maps Embed */}
+                            <div className="rounded-lg overflow-hidden border border-gray-200 h-80">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5888472891385!2d114.14858731495726!3d22.28629698533043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403ffe1b6e1e6c5%3A0x91e5ec8f85f6f9a!2sInfinitus%20Plaza!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s"
+                                    width="100%"
+                                    height="100%"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="Avaai Location - Infinitus Plaza, Hong Kong"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Quick Info Card */}
+                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
+                            <h3 className="font-semibold text-[var(--text-primary)] mb-2">Need immediate help?</h3>
+                            <p className="text-sm text-[var(--text-secondary)] mb-3">
+                                Check out our <a href="/docs" className="text-[var(--accent)] hover:underline">documentation</a> for quick answers to common questions.
+                            </p>
+                            <p className="text-xs text-[var(--text-secondary)]">
+                                Average response time: 24 hours
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Contact Form Card - NOW ON RIGHT */}
                     <div className="bg-white rounded-xl shadow-card p-8">
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Send us a message</h2>
 
@@ -122,64 +178,10 @@ export default function ContactPage() {
                             </div>
                         </div>
                     </div>
-
-                    {/* Map & Address Card */}
-                    <div className="space-y-6">
-                        <div className="bg-white rounded-xl shadow-card p-8">
-                            <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-6">Our Location</h2>
-
-                            <div className="space-y-4 mb-6">
-                                <div className="flex items-start">
-                                    <svg className="w-5 h-5 mr-3 mt-0.5 text-[var(--accent)] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                    <div>
-                                        <p className="font-medium text-[var(--text-primary)]">Avaai Technologies</p>
-                                        <p className="text-[var(--text-secondary)] text-sm mt-1">
-                                            Infinitus Plaza<br />
-                                            199 Des Voeux Road Central<br />
-                                            Sheung Wan, Hong Kong
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center text-sm text-[var(--text-secondary)]">
-                                    <svg className="w-5 h-5 mr-3 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                    <span>Monday - Friday: 9:00 AM - 6:00 PM HKT</span>
-                                </div>
-                            </div>
-
-                            {/* Google Maps Embed */}
-                            <div className="rounded-lg overflow-hidden border border-gray-200 h-80">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5888472891385!2d114.14858731495726!3d22.28629698533043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3403ffe1b6e1e6c5%3A0x91e5ec8f85f6f9a!2sInfinitus%20Plaza!5e0!3m2!1sen!2s!4v1641234567890!5m2!1sen!2s"
-                                    width="100%"
-                                    height="100%"
-                                    style={{ border: 0 }}
-                                    allowFullScreen
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
-                                    title="Avaai Location - Infinitus Plaza, Hong Kong"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Quick Info Card */}
-                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-6">
-                            <h3 className="font-semibold text-[var(--text-primary)] mb-2">Need immediate help?</h3>
-                            <p className="text-sm text-[var(--text-secondary)] mb-3">
-                                Check out our <a href="/docs" className="text-[var(--accent)] hover:underline">documentation</a> for quick answers to common questions.
-                            </p>
-                            <p className="text-xs text-[var(--text-secondary)]">
-                                Average response time: 24 hours
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
+            </div >
+        </div >
     );
 }
