@@ -62,11 +62,75 @@ const EXAMPLE_VIDEOS = [
         aspectRatio: '1:1',
         price: 10,
     },
+    {
+        id: 8,
+        model: 'Sora 2',
+        prompt: 'Cinematic scene showcasing advanced AI video generation',
+        videoUrl: '/hero/sora2.mp4',
+        aspectRatio: '16:9',
+        price: 15,
+    },
+    {
+        id: 9,
+        model: 'Veo 3.1',
+        prompt: 'High-quality realistic video with natural motion',
+        videoUrl: '/hero/veo3.mp4',
+        aspectRatio: '16:9',
+        price: 12,
+    },
+    {
+        id: 10,
+        model: 'Runway Gen 3',
+        prompt: 'Creative video generation with unique style',
+        videoUrl: '/hero/runway-gen3.mp4',
+        aspectRatio: '16:9',
+        price: 10,
+    },
+    {
+        id: 11,
+        model: 'Pika 2.2',
+        prompt: 'Fast and versatile video generation',
+        videoUrl: '/hero/pika-22.mp4',
+        aspectRatio: '16:9',
+        price: 8,
+    },
+    {
+        id: 12,
+        model: 'Pika 1.5',
+        prompt: 'Earlier generation Pika with consistent results',
+        videoUrl: '/hero/pika-15.mp4',
+        aspectRatio: '16:9',
+        price: 6,
+    },
+    {
+        id: 13,
+        model: 'Luma',
+        prompt: 'Dreamlike AI-generated video with smooth animations',
+        videoUrl: '/hero/luma-dream.mp4',
+        aspectRatio: '16:9',
+        price: 9,
+    },
+    {
+        id: 14,
+        model: 'Luma',
+        prompt: 'Flash video generation with Luma Ray 2',
+        videoUrl: '/hero/luma-ray2-flash.mp4',
+        aspectRatio: '16:9',
+        price: 10,
+    },
+    {
+        id: 15,
+        model: 'Minimax Video-01',
+        prompt: 'High-quality Chinese AI model with excellent character motion',
+        videoUrl: '/hero/minimax-video01.mp4',
+        aspectRatio: '16:9',
+        price: 11,
+    },
 ];
 
 export default function ExamplesPage() {
     const [selectedModel, setSelectedModel] = useState('All');
-    const [displayCount, setDisplayCount] = useState(5); // Start with 5 to show load more button
+    const [displayCount, setDisplayCount] = useState(8); // Start with 8 examples
 
     const filteredExamples = selectedModel === 'All'
         ? EXAMPLE_VIDEOS
@@ -76,7 +140,7 @@ export default function ExamplesPage() {
     const hasMore = displayCount < filteredExamples.length;
 
     const loadMore = () => {
-        setDisplayCount(prev => prev + 5); // Load 5 more at a time
+        setDisplayCount(prev => prev + 8); // Load 8 more at a time
     };
 
     return (
@@ -97,7 +161,7 @@ export default function ExamplesPage() {
                         key={model}
                         onClick={() => {
                             setSelectedModel(model);
-                            setDisplayCount(5); // Reset to 5 when changing filter
+                            setDisplayCount(8); // Reset to 8 when changing filter
                         }}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${selectedModel === model
                             ? 'bg-[var(--accent)] text-white'
