@@ -1,5 +1,75 @@
 # Avaai Usage & Development Notes
 
+## Demo Deployment Status
+
+### ✅ Ready for Client Demo
+
+The application is **ready to deploy** and demonstrate. To make it production-ready, only **3 integrations** are needed:
+
+---
+
+## 🔌 Required Integrations (Production)
+
+### 1. Video Generation API (FAL.ai)
+**Status:** ✅ Architecture ready, just needs API key
+
+**What's Built:**
+- Provider abstraction layer: `lib/ai-provider.ts`
+- Automatic failover between Google AI Studio (demo) and FAL.ai (production)
+- Model mapping and price calculation
+- Credit deduction system
+
+**To Activate:**
+1. Get FAL.ai API key from https://fal.ai
+2. Add to `.env.local`: `FAL_API_KEY=your_key_here`
+3. Set `USE_FAL=true` in environment
+4. Done! Videos will generate via FAL.ai
+
+**Time to integrate:** 5 minutes (just add API key)
+
+---
+
+### 2. Payment Gateway (Stripe)
+**Status:** ✅ Credit system ready, needs payment processing
+
+**What's Built:**
+- Credit balance tracking (Supabase)
+- Credit package tiers ($20, $50, $100)
+- Credit deduction on video generation
+- User account management
+
+**To Activate:**
+1. Create Stripe account
+2. Install: `npm install stripe @stripe/stripe-js`
+3. Build payment flow (~2-3 hours):
+   - Create Stripe checkout sessions
+   - Add webhook handler for payment confirmation
+   - Add credits to user balance on success
+4. Add Stripe keys to environment variables
+
+**Time to integrate:** 2-3 hours of development
+
+---
+
+### 3. Content Management System (CMS)
+**Status:** 📝 Documented, not yet built
+
+**Current State:**
+- Video metadata is hardcoded in component files
+- Requires code changes to update content
+
+**To Build:**
+1. Create admin panel UI (~4-6 hours)
+2. Add Supabase table for video metadata
+3. Build CRUD operations
+4. Add authentication/permissions
+
+**Time to build:** 4-6 hours
+
+**Alternative:** Keep hardcoded for demo, build CMS later if needed
+
+---
+
 ## Current Status (As of 2026-01-08)
 
 ### Content Management
