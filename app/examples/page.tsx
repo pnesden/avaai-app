@@ -9,24 +9,56 @@ const EXAMPLE_VIDEOS = [
     {
         id: 1,
         model: 'Sora 2',
-        prompt: 'A serene lake at sunset with mountains in the background, drone camera movement',
-        videoUrl: '/assets/examples/example-1.mp4',
+        prompt: 'A serene beach with crashing waves at sunset, drone camera movement',
+        videoUrl: '/assets/gallery/adraga-beach.mp4',
         aspectRatio: '16:9',
         price: 15,
     },
     {
         id: 2,
         model: 'Veo 3.1',
-        prompt: 'City street at night with neon lights and rain, cinematic camera work',
-        videoUrl: '/assets/examples/example-2.mp4',
+        prompt: 'Aerial view of winding mountain road through snowy landscape',
+        videoUrl: '/assets/gallery/aerial-road.mp4',
         aspectRatio: '16:9',
         price: 12,
     },
     {
         id: 3,
         model: 'Runway Gen 3',
-        prompt: 'Abstract colorful particles flowing and morphing, smooth motion',
-        videoUrl: '/assets/examples/example-3.mp4',
+        prompt: 'Futuristic robot with glowing eyes looking at camera',
+        videoUrl: '/assets/gallery/robot-eyes.mp4',
+        aspectRatio: '1:1',
+        price: 10,
+    },
+    {
+        id: 4,
+        model: 'Pika 2.2',
+        prompt: 'Athlete swimming underwater with dynamic camera angles',
+        videoUrl: '/assets/gallery/swimmer.mp4',
+        aspectRatio: '16:9',
+        price: 8,
+    },
+    {
+        id: 5,
+        model: 'Kling',
+        prompt: 'Drone footage of snowy mountain landscape with smooth motion',
+        videoUrl: '/assets/gallery/drone-snow.mp4',
+        aspectRatio: '16:9',
+        price: 10,
+    },
+    {
+        id: 6,
+        model: 'Luma',
+        prompt: 'Parking lot aerial view in portrait mode with cars moving',
+        videoUrl: '/assets/gallery/parking-portrait.mp4',
+        aspectRatio: '9:16',
+        price: 9,
+    },
+    {
+        id: 7,
+        model: 'Runway Gen 3',
+        prompt: 'Robot character turning head with cinematic lighting',
+        videoUrl: '/assets/gallery/robot-look.mp4',
         aspectRatio: '1:1',
         price: 10,
     },
@@ -57,8 +89,8 @@ export default function ExamplesPage() {
                         key={model}
                         onClick={() => setSelectedModel(model)}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${selectedModel === model
-                                ? 'bg-[var(--accent)] text-white'
-                                : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
+                            ? 'bg-[var(--accent)] text-white'
+                            : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
                             }`}
                     >
                         {model}
