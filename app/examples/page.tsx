@@ -66,10 +66,18 @@ const EXAMPLE_VIDEOS = [
 
 export default function ExamplesPage() {
     const [selectedModel, setSelectedModel] = useState('All');
+    const [displayCount, setDisplayCount] = useState(8); // Start with 8 examples
 
     const filteredExamples = selectedModel === 'All'
         ? EXAMPLE_VIDEOS
         : EXAMPLE_VIDEOS.filter(ex => ex.model === selectedModel);
+
+    const displayedExamples = filteredExamples.slice(0, displayCount);
+    const hasMore = displayCount < filteredExamples.length;
+
+    const loadMore = () => {
+        setDisplayCount(prev => prev + 8); // Load 8 more at a time
+    };
 
     return (
         <div className="container mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -87,7 +95,10 @@ export default function ExamplesPage() {
                 {MODELS.map((model) => (
                     <button
                         key={model}
-                        onClick={() => setSelectedModel(model)}
+                        onClick={() => {
+                            setSelectedModel(model);
+                            setDisplayCount(8); // Reset to 8 when changing filter
+                        }}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${selectedModel === model
                             ? 'bg-[var(--accent)] text-white'
                             : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
@@ -99,23 +110,50 @@ export default function ExamplesPage() {
             </div>
 
             {/* Examples Grid */}
-            {filteredExamples.length === 0 ? (
+            {displayedExamples.length === 0 ? (
                 <div className="bg-white rounded-lg shadow-card p-12 text-center">
                     <p className="text-[var(--text-secondary)]">
                         No examples for this model yet
                     </p>
                 </div>
             ) : (
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {filteredExamples.map((example) => (
-                        <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden hover:shadow-float transition-shadow">
-                            {/* Video Preview */}
-                            <div className="aspect-video bg-gray-100">
+                controls
+                                    loop
+                                />
+        </div>
+
+                            {/* Details */ }
+    <div className="p-4">
+        <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
+                {example.model}
+            </span>
+            <span className="text-xs text-[var(--text-secondary)]">
+                {example.aspectRatio}
+            </span>
+        </div>
+        <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
+            {example.prompt}
+        </p>
+        <div className="flex items-center justify-between">
+            <span className="text-sm font-semibold text-[var(--accent)]">
+                {example.price} credits
+            </span>
+            <Link
+                href={`/generate?prompt=${encodeURIComponent(example.prompt)}&model=${example.model}`}
+                className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+                <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    {displayedExamples.map((example) => (
+                        <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden">
+                            <div className="relative w-full" style={{ paddingBottom: example.aspectRatio === '1:1' ? '100%' : example.aspectRatio === '9:16' ? '177.77%' : '56.25%' }}>
                                 <video
                                     src={example.videoUrl}
-                                    className="w-full h-full object-cover"
-                                    controls
+                                    className="absolute top-0 left-0 w-full h-full object-cover"
+                                    autoPlay
+                                    muted
                                     loop
+                                    playsInline
                                 />
                             </div>
 
@@ -147,6 +185,19 @@ export default function ExamplesPage() {
                         </div>
                     ))}
                 </div>
+
+                {/* Load More Button */}
+                {hasMore && (
+                    <div className="mt-8 text-center">
+                        <button
+                            onClick={loadMore}
+                            className="inline-flex items-center justify-center rounded-full border-2 border-[var(--border)] bg-white px-8 py-3 text-base font-semibold text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                        >
+                            Load more examples
+                        </button>
+                    </div>
+                )}
+            </>
             )}
 
             {/* CTA */}
@@ -159,5 +210,5 @@ export default function ExamplesPage() {
                 </Link>
             </div>
         </div>
-    );
+        );
 }
