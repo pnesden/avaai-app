@@ -2,6 +2,7 @@
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useState } from 'react';
 import VideoPlayer from '@/components/VideoPlayer';
 
 // Mock data - should be shared or fetched from DB in real app
@@ -13,6 +14,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/adraga-beach.mp4',
         aspectRatio: '16:9',
         price: 15,
+        duration: '10s',
+        created: '2024-01-08',
     },
     {
         id: 2,
@@ -21,6 +24,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/aerial-road.mp4',
         aspectRatio: '16:9',
         price: 12,
+        duration: '8s',
+        created: '2024-01-08',
     },
     {
         id: 3,
@@ -29,6 +34,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/robot-eyes.mp4',
         aspectRatio: '1:1',
         price: 10,
+        duration: '6s',
+        created: '2024-01-07',
     },
     {
         id: 4,
@@ -37,6 +44,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/swimmer.mp4',
         aspectRatio: '16:9',
         price: 8,
+        duration: '8s',
+        created: '2024-01-07',
     },
     {
         id: 5,
@@ -45,6 +54,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/drone-snow.mp4',
         aspectRatio: '16:9',
         price: 10,
+        duration: '10s',
+        created: '2024-01-06',
     },
     {
         id: 6,
@@ -53,6 +64,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/parking-portrait.mp4',
         aspectRatio: '9:16',
         price: 9,
+        duration: '8s',
+        created: '2024-01-06',
     },
     {
         id: 7,
@@ -61,6 +74,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/assets/gallery/robot-look.mp4',
         aspectRatio: '1:1',
         price: 10,
+        duration: '6s',
+        created: '2024-01-05',
     },
     {
         id: 8,
@@ -69,6 +84,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/sora2.mp4',
         aspectRatio: '16:9',
         price: 15,
+        duration: '10s',
+        created: '2024-01-05',
     },
     {
         id: 9,
@@ -77,6 +94,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/veo3.mp4',
         aspectRatio: '16:9',
         price: 12,
+        duration: '8s',
+        created: '2024-01-04',
     },
     {
         id: 10,
@@ -85,6 +104,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/runway-gen3.mp4',
         aspectRatio: '16:9',
         price: 10,
+        duration: '8s',
+        created: '2024-01-04',
     },
     {
         id: 11,
@@ -93,6 +114,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/pika-22.mp4',
         aspectRatio: '16:9',
         price: 8,
+        duration: '6s',
+        created: '2024-01-03',
     },
     {
         id: 12,
@@ -101,6 +124,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/pika-15.mp4',
         aspectRatio: '16:9',
         price: 6,
+        duration: '6s',
+        created: '2024-01-03',
     },
     {
         id: 13,
@@ -109,6 +134,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/luma-dream.mp4',
         aspectRatio: '16:9',
         price: 9,
+        duration: '8s',
+        created: '2024-01-02',
     },
     {
         id: 14,
@@ -117,6 +144,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/luma-ray2-flash.mp4',
         aspectRatio: '16:9',
         price: 10,
+        duration: '8s',
+        created: '2024-01-02',
     },
     {
         id: 15,
@@ -125,6 +154,8 @@ const EXAMPLE_VIDEOS = [
         videoUrl: '/hero/minimax-video01.mp4',
         aspectRatio: '16:9',
         price: 11,
+        duration: '10s',
+        created: '2024-01-01',
     },
 ];
 
@@ -132,6 +163,7 @@ export default function VideoDetailsPage() {
     const params = useParams();
     const id = Number(params.id);
     const video = EXAMPLE_VIDEOS.find((v) => v.id === id);
+    const [copied, setCopied] = useState(false);
 
     if (!video) {
         return (
@@ -144,70 +176,138 @@ export default function VideoDetailsPage() {
         );
     }
 
-    return (
-        <div className="container mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-            {/* Back Link */}
-            <Link href="/examples" className="inline-flex items-center text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-8 transition-colors">
-                <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Back to examples
-            </Link>
+    const copyPrompt = () => {
+        navigator.clipboard.writeText(video.prompt);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
-            <div className="grid lg:grid-cols-3 gap-8">
-                {/* Left Column: Video Player */}
-                <div className="lg:col-span-2">
-                    <div className="bg-white rounded-xl shadow-lg overflow-hidden ring-1 ring-black/5">
-                        <div className={`w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16] max-w-sm mx-auto' : video.aspectRatio === '1:1' ? 'aspect-square max-w-xl mx-auto' : 'aspect-video'}`}>
-                            <VideoPlayer src={video.videoUrl} className="w-full h-full" />
-                        </div>
-                    </div>
+    return (
+        <div className="min-h-screen bg-gray-50">
+            <div className="container mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+                {/* Back Link */}
+                <Link
+                    href="/examples"
+                    className="inline-flex items-center text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] mb-6 transition-colors"
+                >
+                    ← BACK
+                </Link>
+
+                {/* Page Header */}
+                <div className="mb-6">
+                    <p className="text-xs uppercase tracking-wide text-[var(--text-secondary)] mb-2">
+                        WAN 2.6 TEXT, IMAGE & REFERENCE TO VIDEO
+                    </p>
+                    <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-primary)] leading-tight">
+                        {video.prompt}
+                    </h1>
+                    <p className="text-sm text-[var(--text-secondary)] mt-2">
+                        This video was generated with {video.model}. <Link href="/models" className="text-[var(--accent)] hover:underline">Browse how to create similar renders below</Link>
+                    </p>
                 </div>
 
-                {/* Right Column: Details */}
-                <div className="lg:col-span-1 space-y-6">
-                    <div className="bg-white rounded-xl shadow-card p-6 border border-[var(--border)]">
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                {video.model}
-                            </span>
-                            <span className="text-sm text-[var(--text-secondary)]">
-                                {video.aspectRatio}
-                            </span>
+                <div className="grid lg:grid-cols-3 gap-6">
+                    {/* Left Column: Details */}
+                    <div className="lg:col-span-2 space-y-4">
+                        {/* Prompt Card */}
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                            <div className="flex items-center justify-between mb-3">
+                                <h3 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider">
+                                    PROMPT
+                                </h3>
+                                <button
+                                    onClick={copyPrompt}
+                                    className="inline-flex items-center px-3 py-1.5 text-xs font-medium rounded-md border border-gray-300 hover:bg-gray-50 transition-colors"
+                                >
+                                    {copied ? (
+                                        <>
+                                            <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            Copied!
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg className="w-3 h-3 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                            </svg>
+                                            COPY PROMPT
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                            <p className="text-sm text-[var(--text-primary)] leading-relaxed">
+                                {video.prompt}
+                            </p>
                         </div>
 
-                        <h1 className="text-xl font-bold text-[var(--text-primary)] mb-4">
-                            Video Details
-                        </h1>
-
-                        <div className="space-y-4">
-                            <div>
-                                <h3 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-2">Prompt</h3>
-                                <p className="text-sm text-[var(--text-primary)] bg-gray-50 p-3 rounded-md border border-gray-100">
-                                    {video.prompt}
-                                </p>
-                            </div>
-
-                            <div>
-                                <h3 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-2">Cost</h3>
-                                <p className="text-lg font-bold text-[var(--accent)]">
-                                    {video.price} credits
-                                </p>
-                            </div>
-
-                            <div className="pt-4 mt-4 border-t border-[var(--border)]">
+                        {/* Engine Card */}
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                            <h3 className="text-xs font-semibold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
+                                ENGINE
+                            </h3>
+                            <div className="flex items-start justify-between mb-4">
+                                <div>
+                                    <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1">{video.model}</h4>
+                                    <p className="text-sm text-[var(--text-secondary)]">
+                                        Advanced AI video generation engine
+                                    </p>
+                                </div>
                                 <Link
-                                    href={`/generate?prompt=${encodeURIComponent(video.prompt)}&model=${video.model}`}
-                                    className="w-full inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white hover:bg-[var(--accent-hover)] transition-all shadow-sm hover:shadow-md"
+                                    href="/models"
+                                    className="text-xs font-medium text-[var(--accent)] hover:underline whitespace-nowrap"
                                 >
-                                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                    </svg>
-                                    Clone Settings
+                                    Open model page →
                                 </Link>
-                                <p className="text-xs text-center text-[var(--text-secondary)] mt-3">
-                                    Use this prompt and model as a starting point
-                                </p>
+                            </div>
+                            <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span className="text-[var(--text-secondary)]">Cost:</span>
+                                    <span className="ml-2 font-semibold text-[var(--text-primary)]">${(video.price * 0.1).toFixed(2)}</span>
+                                </div>
+                                <div>
+                                    <span className="text-[var(--text-secondary)]">Duration:</span>
+                                    <span className="ml-2 font-semibold text-[var(--text-primary)]">{video.duration}</span>
+                                </div>
+                                <div>
+                                    <span className="text-[var(--text-secondary)]">Created:</span>
+                                    <span className="ml-2 font-semibold text-[var(--text-primary)]">{video.created}</span>
+                                </div>
+                                <div>
+                                    <span className="text-[var(--text-secondary)]">Audio:</span>
+                                    <span className="ml-2 font-semibold text-[var(--text-primary)]">No</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Create Your Own Card */}
+                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg shadow-sm border border-blue-100 p-6">
+                            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-2">
+                                Want to create a video like this?
+                            </h3>
+                            <p className="text-sm text-[var(--text-secondary)] mb-4">
+                                Start a render from this prompt or load it in the workspace to remix with your preferred engine, duration, or audio.
+                            </p>
+                            <Link
+                                href={`/generate?prompt=${encodeURIComponent(video.prompt)}&model=${video.model}`}
+                                className="inline-flex items-center justify-center rounded-lg bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-white hover:bg-[var(--accent-hover)] transition-all shadow-sm hover:shadow-md"
+                            >
+                                START A RENDER →
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Video Player */}
+                    <div className="lg:col-span-1">
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sticky top-8">
+                            <div className={`w-full ${video.aspectRatio === '9:16' ? 'aspect-[9/16]' : video.aspectRatio === '1:1' ? 'aspect-square' : 'aspect-video'}`}>
+                                <VideoPlayer src={video.videoUrl} className="w-full h-full" />
+                            </div>
+                            <div className="p-4 border-t border-gray-200">
+                                <div className="flex items-center justify-between text-xs text-[var(--text-secondary)]">
+                                    <span>{video.aspectRatio}</span>
+                                    <span>{video.duration}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
