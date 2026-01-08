@@ -66,7 +66,7 @@ const EXAMPLE_VIDEOS = [
 
 export default function ExamplesPage() {
     const [selectedModel, setSelectedModel] = useState('All');
-    const [displayCount, setDisplayCount] = useState(8); // Start with 8 examples
+    const [displayCount, setDisplayCount] = useState(8);
 
     const filteredExamples = selectedModel === 'All'
         ? EXAMPLE_VIDEOS
@@ -76,7 +76,7 @@ export default function ExamplesPage() {
     const hasMore = displayCount < filteredExamples.length;
 
     const loadMore = () => {
-        setDisplayCount(prev => prev + 8); // Load 8 more at a time
+        setDisplayCount(prev => prev + 8);
     };
 
     return (
@@ -97,11 +97,11 @@ export default function ExamplesPage() {
                         key={model}
                         onClick={() => {
                             setSelectedModel(model);
-                            setDisplayCount(8); // Reset to 8 when changing filter
+                            setDisplayCount(8);
                         }}
                         className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${selectedModel === model
-                            ? 'bg-[var(--accent)] text-white'
-                            : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
+                                ? 'bg-[var(--accent)] text-white'
+                                : 'bg-white text-[var(--text-secondary)] border border-[var(--border)] hover:border-[var(--accent)]'
                             }`}
                     >
                         {model}
@@ -117,87 +117,61 @@ export default function ExamplesPage() {
                     </p>
                 </div>
             ) : (
-                controls
-                                    loop
-                                />
-        </div>
-
-                            {/* Details */ }
-    <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
-                {example.model}
-            </span>
-            <span className="text-xs text-[var(--text-secondary)]">
-                {example.aspectRatio}
-            </span>
-        </div>
-        <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
-            {example.prompt}
-        </p>
-        <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-[var(--accent)]">
-                {example.price} credits
-            </span>
-            <Link
-                href={`/generate?prompt=${encodeURIComponent(example.prompt)}&model=${example.model}`}
-                className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
                 <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {displayedExamples.map((example) => (
-                        <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden">
-                            <div className="relative w-full" style={{ paddingBottom: example.aspectRatio === '1:1' ? '100%' : example.aspectRatio === '9:16' ? '177.77%' : '56.25%' }}>
-                                <video
-                                    src={example.videoUrl}
-                                    className="absolute top-0 left-0 w-full h-full object-cover"
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                />
-                            </div>
-
-                            {/* Details */}
-                            <div className="p-4">
-                                <div className="flex items-center justify-between mb-2">
-                                    <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
-                                        {example.model}
-                                    </span>
-                                    <span className="text-xs text-[var(--text-secondary)]">
-                                        {example.aspectRatio}
-                                    </span>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {displayedExamples.map((example) => (
+                            <div key={example.id} className="bg-white rounded-lg shadow-card overflow-hidden hover:shadow-float transition-shadow">
+                                {/* Video Preview */}
+                                <div className="aspect-video bg-gray-100">
+                                    <video
+                                        src={example.videoUrl}
+                                        className="w-full h-full object-cover"
+                                        controls
+                                        loop
+                                    />
                                 </div>
-                                <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
-                                    {example.prompt}
-                                </p>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-semibold text-[var(--accent)]">
-                                        {example.price} credits
-                                    </span>
-                                    <Link
-                                        href={`/generate?prompt=${encodeURIComponent(example.prompt)}&model=${example.model}`}
-                                        className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
-                                    >
-                                        Clone settings →
-                                    </Link>
+
+                                {/* Details */}
+                                <div className="p-4">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs font-medium text-[var(--accent)] bg-blue-50 px-2 py-1 rounded">
+                                            {example.model}
+                                        </span>
+                                        <span className="text-xs text-[var(--text-secondary)]">
+                                            {example.aspectRatio}
+                                        </span>
+                                    </div>
+                                    <p className="text-sm text-[var(--text-primary)] line-clamp-2 mb-3">
+                                        {example.prompt}
+                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-sm font-semibold text-[var(--accent)]">
+                                            {example.price} credits
+                                        </span>
+                                        <Link
+                                            href={`/generate?prompt=${encodeURIComponent(example.prompt)}&model=${example.model}`}
+                                            className="text-sm font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+                                        >
+                                            Clone settings →
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Load More Button */}
-                {hasMore && (
-                    <div className="mt-8 text-center">
-                        <button
-                            onClick={loadMore}
-                            className="inline-flex items-center justify-center rounded-full border-2 border-[var(--border)] bg-white px-8 py-3 text-base font-semibold text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
-                        >
-                            Load more examples
-                        </button>
+                        ))}
                     </div>
-                )}
-            </>
+
+                    {/* Load More Button */}
+                    {hasMore && (
+                        <div className="mt-8 text-center">
+                            <button
+                                onClick={loadMore}
+                                className="inline-flex items-center justify-center rounded-full border-2 border-[var(--border)] bg-white px-8 py-3 text-base font-semibold text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                            >
+                                Load more examples
+                            </button>
+                        </div>
+                    )}
+                </>
             )}
 
             {/* CTA */}
@@ -210,5 +184,5 @@ export default function ExamplesPage() {
                 </Link>
             </div>
         </div>
-        );
+    );
 }
