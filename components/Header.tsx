@@ -51,8 +51,9 @@ export default function Header() {
                         height={32}
                         className="w-8 h-8"
                     />
-                    <span className="text-2xl font-semibold text-[var(--text-primary)]">
-                        Example-AI
+                    <span className="text-2xl font-semibold">
+                        <span className="text-[#2D3748]">Example</span>
+                        <span className="bg-gradient-to-r from-[#4A90E2] to-[#7B68EE] bg-clip-text text-transparent">-AI</span>
                     </span>
                 </Link>
 
