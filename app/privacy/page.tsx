@@ -1,6 +1,6 @@
 export const metadata = {
-    title: 'Privacy Policy - Avaai',
-    description: 'Avaai Privacy Policy',
+    title: 'Privacy Policy - Example-AI',
+    description: 'Example-AI Privacy Policy',
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-4">Overview</h2>
                         <p>
-                            Avaai ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our AI video generation platform.
+                            Example-AI ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our AI video generation platform.
                         </p>
                     </section>
 
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                         <p>
                             For privacy-related questions or requests, contact us at:
                             <br />
-                            <a href="mailto:privacy@avaai.app" className="text-[var(--accent)] hover:underline">privacy@avaai.app</a>
+                            <a href="mailto:privacy@example.com" className="text-[var(--accent)] hover:underline">privacy@example.com</a>
                         </p>
                     </section>
                 </div>

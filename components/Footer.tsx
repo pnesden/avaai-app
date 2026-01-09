@@ -84,7 +84,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-[var(--border)]">
                     <p className="text-sm text-[var(--text-secondary)] text-center">
-                        © {currentYear} Avaai. All rights reserved.
+                        © {currentYear} Example-AI. All rights reserved.
                     </p>
                 </div>
             </div>

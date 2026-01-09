@@ -1,13 +1,13 @@
 export const metadata = {
-    title: 'About Us - Avaai',
-    description: 'Learn about Avaai - Your multi-engine AI video platform',
+    title: 'About Us - Example-AI',
+    description: 'Learn about Example-AI - Your multi-engine AI video platform',
 };
 
 export default function AboutPage() {
     return (
         <div className="min-h-screen bg-gray-50 py-16">
             <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-                <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-8">About Avaai</h1>
+                <h1 className="text-4xl font-bold text-[var(--text-primary)] mb-8">About Example-AI</h1>
 
                 <div className="bg-white rounded-lg shadow-card p-8 space-y-6">
                     <section>
@@ -15,7 +15,7 @@ export default function AboutPage() {
                             The Right Engine for Every Shot
                         </h2>
                         <p className="text-[var(--text-secondary)] leading-relaxed">
-                            Avaai is a unified platform that gives you access to the world's best AI video generation models - all in one place. Choose from Sora, Veo, Runway, Pika, and more, with transparent pricing and real-time cost estimation.
+                            Example-AI is a unified platform that gives you access to the world's best AI video generation models - all in one place. Choose from Sora, Veo, Runway, Pika, and more, with transparent pricing and real-time cost estimation.
                         </p>
                     </section>
 
@@ -24,7 +24,7 @@ export default function AboutPage() {
                             Our Mission
                         </h2>
                         <p className="text-[var(--text-secondary)] leading-relaxed">
-                            We believe creators shouldn't be locked into a single AI engine. Different projects need different tools - whether you need cinematic quality, fast iterations, or specific aspect ratios. Avaai lets you pick the perfect model for each shot.
+                            We believe creators shouldn't be locked into a single AI engine. Different projects need different tools - whether you need cinematic quality, fast iterations, or specific aspect ratios. Example-AI lets you pick the perfect model for each shot.
                         </p>
                     </section>
 

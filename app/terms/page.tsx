@@ -1,6 +1,6 @@
 export const metadata = {
-    title: 'Terms of Service - Avaai',
-    description: 'Avaai Terms of Service',
+    title: 'Terms of Service - Example-AI',
+    description: 'Example-AI Terms of Service',
 };
 
 export default function TermsPage() {
@@ -15,14 +15,14 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-4">Agreement to Terms</h2>
                         <p>
-                            By accessing or using Avaai, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
+                            By accessing or using Example-AI, you agree to be bound by these Terms of Service. If you disagree with any part of the terms, you may not access the service.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-4">Description of Service</h2>
                         <p>
-                            Avaai is a platform that provides access to multiple AI video generation models. We aggregate services from third-party providers (Sora, Veo, Runway, Pika, and others) and provide a unified interface for video creation.
+                            Example-AI is a platform that provides access to multiple AI video generation models. We aggregate services from third-party providers (Sora, Veo, Runway, Pika, and others) and provide a unified interface for video creation.
                         </p>
                     </section>
 
@@ -52,7 +52,7 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-4">Content Ownership</h2>
                         <p>
-                            You retain all rights to videos you generate through Avaai. However, you are responsible for ensuring your use of the service complies with the terms of the underlying AI providers.
+                            You retain all rights to videos you generate through Example-AI. However, you are responsible for ensuring your use of the service complies with the terms of the underlying AI providers.
                         </p>
                     </section>
 
@@ -69,7 +69,7 @@ export default function TermsPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-4">Limitation of Liability</h2>
                         <p>
-                            Avaai is provided "as is" without warranties. We are not liable for:
+                            Example-AI is provided "as is" without warranties. We are not liable for:
                         </p>
                         <ul className="list-disc pl-6 space-y-2 mt-2">
                             <li>Quality or suitability of generated videos</li>
@@ -98,7 +98,7 @@ export default function TermsPage() {
                         <p>
                             Questions about these terms? Contact us at:
                             <br />
-                            <a href="mailto:legal@avaai.app" className="text-[var(--accent)] hover:underline">legal@avaai.app</a>
+                            <a href="mailto:legal@example.com" className="text-[var(--accent)] hover:underline">legal@example.com</a>
                         </p>
                     </section>
                 </div>

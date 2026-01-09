@@ -46,13 +46,13 @@ export default function Header() {
                 <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                     <Image
                         src="/branding/favicon.png"
-                        alt="Avaai"
+                        alt="Example-AI"
                         width={32}
                         height={32}
                         className="w-8 h-8"
                     />
                     <span className="text-2xl font-semibold text-[var(--text-primary)]">
-                        Avaai
+                        Example-AI
                     </span>
                 </Link>
 

@@ -86,8 +86,8 @@ Build a visual clone of MaxVideoAI with same functionality and look/feel, but br
 - [ ] Color-themed model cards (purple for Sora, blue for Veo, etc.)
 - [ ] Color-coded filter buttons on Examples page
 - [ ] Global border-radius increase (1rem minimum)
-- [ ] Softer shadows on all cards
-- [ ] Hover animations (lift + shadow)
+- [x] Softer shadows on all cards
+- [x] Hover animations (lift + shadow)
 
 #### 8.3 Final Polish
 - [ ] Typography refinement (Inter font, proper weights)

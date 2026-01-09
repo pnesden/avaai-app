@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Blog - Avaai',
+    title: 'Blog - Example-AI',
     description: 'Latest news, guides, and insights about AI video generation',
 };
 

@@ -52,7 +52,7 @@ export default function ContactPage() {
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
                                     <div>
-                                        <p className="font-medium text-[var(--text-primary)]">Avaai Technologies</p>
+                                        <p className="font-medium text-[var(--text-primary)]">Example-AI Technologies</p>
                                         <p className="text-[var(--text-secondary)] text-sm mt-1">
                                             Infinitus Plaza<br />
                                             199 Des Voeux Road Central<br />
@@ -79,7 +79,7 @@ export default function ContactPage() {
                                     allowFullScreen
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
-                                    title="Avaai Location - Infinitus Plaza, Hong Kong"
+                                    title="Example-AI Location - Infinitus Plaza, Hong Kong"
                                 />
                             </div>
                         </div>
@@ -171,8 +171,8 @@ export default function ContactPage() {
                                     <svg className="w-5 h-5 mr-3 text-[var(--accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <a href="mailto:support@avaai.app" className="hover:text-[var(--accent)] transition-colors">
-                                        support@avaai.app
+                                    <a href="mailto:support@example.com" className="hover:text-[var(--accent)] transition-colors">
+                                        support@example.com
                                     </a>
                                 </div>
                             </div>

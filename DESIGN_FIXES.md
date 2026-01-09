@@ -129,8 +129,8 @@ Generated: 2026-01-08
    - [ ] Buttons: `border-radius: 9999px` (fully rounded)
 
 2. **Shadows**
-   - [ ] Use softer shadows: `box-shadow: 0 4px 20px rgba(0,0,0,0.05)`
-   - [ ] Add hover state: `box-shadow: 0 8px 30px rgba(0,0,0,0.1)`
+   - [x] Use softer shadows: `box-shadow: 0 4px 20px rgba(0,0,0,0.05)`
+   - [x] Add hover state: `box-shadow: 0 8px 30px rgba(0,0,0,0.1)`
 
 3. **Typography**
    - [ ] Use Inter or similar modern sans-serif
@@ -143,8 +143,8 @@ Generated: 2026-01-08
    - [ ] Ensure consistent accent color usage
 
 5. **Animations/Transitions**
-   - [ ] Add hover effects to ALL cards (transform, shadow)
-   - [ ] Smooth transitions: `transition: all 0.3s ease`
+   - [x] Add hover effects to ALL cards (transform, shadow)
+   - [x] Smooth transitions: `transition: all 0.3s ease`
    - [ ] Loading states for videos
 
 ---
